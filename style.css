@@ -1,20 +1,66 @@
 /* intuitivnější box-sizing */
-html { box-sizing: border-box; }
-*, ::before, ::after { box-sizing: inherit; }
+html {
+  box-sizing: border-box;
+}
+*,
+::before,
+::after {
+  box-sizing: inherit;
+}
 
 body {
-	font-family: sans-serif;
+  font-family: sans-serif;
 }
 
 .sloupec {
-	padding: 20px;
+  padding: 20px;
 }
 
-.hlavicka	{ background-color: #2ecc71; }
-.hlavni		{ background-color: #f1c40f; }
-.levy			{ background-color: #3498db; }
-.pravy		{ background-color: #e74c3c; }
-.paticka	{ background-color: #9b59b6; }
+.hlavicka {
+  background-color: #2ecc71;
+}
+.hlavni {
+  background-color: #f1c40f;
+}
+.levy {
+  background-color: #3498db;
+}
+.pravy {
+  background-color: #e74c3c;
+}
+.paticka {
+  background-color: #9b59b6;
+}
 
 /* ---------------------------------------------------- */
 
+.kontejner {
+  display: grid;
+  grid-template-columns: 200px auto 250px;
+  grid-template-rows: 200px auto 100px; /*repeat(3, 1fr); */
+  grid-gap: 1rem;
+}
+
+.hlavicka,
+.paticka {
+  grid-column: 1 / 4;
+}
+
+.hlavni {
+  grid-column: 2;
+  grid-row: 2 / 4;
+}
+
+.levy,
+.pravy {
+  /* grid-row-start: 2;
+  grid-row-end: 4; */
+  grid-row: 2 / 4;
+}
+
+/*media queries*/
+@media (max-width: 750px) {
+  .kontejner {
+    display: block;
+  }
+}
